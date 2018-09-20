@@ -83,15 +83,7 @@ class PersonController extends Controller
           ->get();
         
     
-        $searchperson = Person::where([]);   
-        if($request->has('username'))
-            $searchperson = $searchperson->where('username','like','%'.$request->input('username').'%');
-        if($request->has('phone'))
-            $searchperson = $searchperson->where('phone','like','%'.$request->input('phone').'%');
-        if($request->has('email'))
-            $searchperson = $searchperson->where('email','like','%'.$request->input('email').'%');
-   //     $searchperson = $searchperson->paginate(7);
-    return view("person.request",compact("person","searchperson"));
+    return view("person.request",compact("person"));
     
     }
     

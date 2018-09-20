@@ -39,36 +39,6 @@ class AdminController extends Controller
         return view("admin.show",compact("admin"));
     }
     
-    public function create()
-    {
-        return view("admin.create");
-    }
-
-    public function store(Request $request)
-    {      
-
-        $request->validate($this->rules());
-        
-        //لانشاء اليوزر هنا بس وسطر 73
-//        $user = User::create([
-//            'name' => $request['name'],
-//            'email' => $request['email'],
-//            'password' => Hash::make($request['password']),
-//        ]);
-        
-        $IsExists=admin::whereRaw(" email=?",$request["email"])->count();
-        if($IsExists>0){
-            \Session::flash("msg","e:".$request["name"]." موجود مسبقا لدينا ");
-            return redirect("{{route('admin.create')}}")->withInput();  
-        }
-        $admin = new Admin();
-       $request['password'] = Hash::make($request->input('password'));
-        $admin->fill($request->all());
-        $admin->save();
-        
-        return redirect("{{route(admin.index)}}");
-    }
-
 
 //        public function changepassword()
 //    {
@@ -109,27 +79,31 @@ class AdminController extends Controller
 //		else
 //			return 0;
 //	}
-//    public function profile(){
-//        $item=Admin::find($this->id);
-//        return view("admin.profile",compact("item"));
-//    }
-//    
-//    public function updateprofile(Request $request)
-//    {       
-//        
-//        $item = Admin::find($this->id);        
-//        $item->name= $request["name"];
-//        $item->phone= $request["phone"];
-//        $item->email= $request["email"];
-//        $item->email= $request["email"];
-//
-//        $item->save();
-//        
-//        \Session::flash("msg","s:Admin updated successfully");
-//        return redirect("/admin/profile");
-//    }
-//    
-//    
+    
+    public function profile(){
+        try{
+             $admin=Admin::findOrFail($this->id);
+            return view ("admin.profile",compact("admin"));
+        }catch(\Exception $exception){
+            return redirect()->route("person.index")->with('error','Admin not found');
+        }
+    }
+    
+    public function updateprofile(Request $request)
+    {       
+        
+        $admin = Admin::findOrFail($this->id);        
+        $admin->name= $request["name"];      
+        $admin->username= $request["username"];
+        $admin->phone= $request["phone"];
+        $admin->email= $request["email"];
+
+        $admin->save();
+        
+        return redirect()->back()->with('success','Your Profile Updated Sucessfully!');
+    }
+    
+    
        private
     function rules($id = null)
     {

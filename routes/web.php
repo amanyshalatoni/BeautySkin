@@ -14,18 +14,10 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('create',['as' => 'admin.create', 'uses' => 'AdminController@create']);
-    Route::get('show/{id}',['as' => 'admin.show', 'uses' => 'AdminController@show']);
-    Route::post('create', ['as' => 'admin.store', 'uses' => 'AdminController@store']);
-    Route::get('/all', ['as' => 'admin.index', 'uses' => 'AdminController@index']);
-    Route::get('destroy/{id?}', ['as' => 'admin.destroy', 'uses' => 'AdminController@destroy']);
-    Route::get('edit/{id}', ['as' => 'admin.edit', 'uses' => 'AdminController@edit']);
-    Route::put('update/{id}', ['as' => 'admin.update', 'uses' => 'AdminController@update']);
-//    Route::get('/active/{id}', 'adminController@active');
 //    Route::get('/changepassword/', 'adminController@changepassword');
 //    Route::post('/changepassword/', 'adminController@postChangepassword');
-//    Route::get('/profile/', 'adminController@profile');
-//    Route::post('/profile/', 'adminController@updateprofile');
+      Route::get('/profile/',['as'=>'admin.profile','uses'=> 'AdminController@profile']);
+      Route::post('/profile/',['as'=>'admin.updateprofile','uses'=> 'AdminController@updateprofile']);
 });
 Route::get('/language/{lang?}', [
     'as' => 'language.change',
@@ -40,11 +32,11 @@ Route::group(['prefix' => 'person'], function () {
     Route::get('block/{id?}', ['as' => 'person.block', 'uses' => 'PersonController@block']);
     Route::get('accept/{id}', ['as' => 'person.accept', 'uses' => 'PersonController@accept']);
         Route::get('reject/{id?}', ['as' => 'person.reject', 'uses' => 'PersonController@reject']);
-
-
 //    Route::get('/active/{id}', 'UserController@active');
 //    Route::get('/changepassword/', 'UserController@changepassword');
 //    Route::post('/changepassword/', 'UserController@postChangepassword');
 //    Route::get('/profile/', 'UserController@profile');
 //    Route::post('/profile/', 'UserController@updateprofile');
 });
+
+    Route::get('/',['as' => 'logout', 'uses' => 'Controller@logout']);

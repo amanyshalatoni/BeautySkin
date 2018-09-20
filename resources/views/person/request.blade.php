@@ -6,44 +6,8 @@
 
         <div class="col-md-12">
             <div class="panel panel-success">
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <form action="{{route('person.reqExp')}}" method="GET">
-                            
-                                 <div class="col-sm-4 form-group">
-                                    <label for="username">Username</label>
-                                    <input type="text" name="username" class="form-control"
-                                           value="{{app('request')->get('username')}}">
-                                </div>
-                                 <div class="col-sm-4 form-group">
-                                    <label for="phone">phone</label>
-                                    <input type="text" name="phone" class="form-control"
-                                           value="{{app('request')->get('phone')}}">
-                                </div>
-                                    <div class="col-sm-4 form-group">
-                                    <label for="email">Email</label>
-                                    <input type="text" name="email" class="form-control"
-                                           value="{{app('request')->get('email')}}">
-                                </div>
-                                
-                                <div class="form-action col-sm-12 text-right">
-                                         
-      <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i> search </button>
-    
-                                    <a class="btn btn-default" href="{{route('person.reqExp')}}">Cancel</a>
-                                </div>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="panel panel-success">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><i class="fa fa-book"></i>Persons Who Request to be Expert</h3>
+                    <h3 class="panel-title"><i class="fa fa-user"></i> Persons Who Request to be Expert</h3>
                 </div>
                 <div class="panel-body">
                     <table class="table table-bordered table-striped table-condensed flip-content">
@@ -65,7 +29,9 @@
                                 <td>{{$i->username}}</td>
                                 <td>{{$i->email}}</td>
                                 <td>{{$i->phone}}</td>
-                                <td>{{$i->cv}}</td>
+                                <td>
+                                <a href = "download/{{$i->cv}}" download="{{$i->cv}}"><button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-download"> Download CV</i></button></a>
+                                </td>
                                 <td>{{$i->created_at}}</td>
                                 <td>
                                     <a href="{{route('person.accept',['id' => $i->id])}}" class="btn btn-success">

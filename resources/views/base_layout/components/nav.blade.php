@@ -38,27 +38,7 @@
             </form>
             <!-- END RESPONSIVE QUICK SEARCH FORM -->
         </li>
-       
-   
-                    
-                        
-                        <li class="nav-item start ">
-                            <a href="javascript:;" class="nav-link nav-toggle">
-                                <i class="icon-user"></i>
-                                <span class="title">@lang('admin.titles.Admin') </span>
-                                <span class="arrow"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item start ">
-                                    <a href="{{route('admin.index')}}" class="nav-link ">
-                                        <i class="icon-bar-chart"></i>
-                                        <span class="title">@lang('admin.show') </span>
-                                    </a>
-                                </li>
-                               
-                            </ul>
-                        </li>
-              
+    
                          <li class="nav-item start ">
                             <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="icon-user"></i>
