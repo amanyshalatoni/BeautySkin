@@ -42,7 +42,8 @@ class CreatePerson extends Migration
             $table->string('amount_cream');
             $table->string('image');
             $table->enum('type_of_person',['user','expert'])->default('user');
-            $table->string('cv');
+            $table->string('cv')->nullable();
+            $table->boolean('blocked');
             $table->timestamps();
             $table->softDeletes();
             $table->rememberToken();

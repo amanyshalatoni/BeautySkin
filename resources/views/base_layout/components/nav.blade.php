@@ -55,52 +55,27 @@
                                         <span class="title">@lang('admin.show') </span>
                                     </a>
                                 </li>
-                                <li class="nav-item start ">
-                                    <a href="{{route('admin.store')}}" class="nav-link ">
-                                        <i class="icon-bulb"></i>
-                                        <span class="title">@lang('admin.add') </span>
-                                    </a>
-                                </li>
+                               
                             </ul>
                         </li>
+              
                          <li class="nav-item start ">
                             <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="icon-user"></i>
-                                <span class="title">@lang('expert.titles.Expert') </span>
+                                <span class="title">@lang('person.titles.Person') </span>
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item start ">
-                                    <a href="{{route('expert.index')}}" class="nav-link ">
+                                    <a href="{{route('person.index')}}" class="nav-link ">
                                         <i class="icon-bar-chart"></i>
-                                        <span class="title">@lang('expert.show') </span>
+                                        <span class="title">@lang('person.index') </span>
                                     </a>
                                 </li>
-                                <li class="nav-item start ">
-                                    <a href="{{route('expert.store')}}" class="nav-link ">
-                                        <i class="icon-bulb"></i>
-                                        <span class="title">@lang('expert.add') </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                         <li class="nav-item start ">
-                            <a href="javascript:;" class="nav-link nav-toggle">
-                                <i class="icon-user"></i>
-                                <span class="title">@lang('user.titles.User') </span>
-                                <span class="arrow"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item start ">
-                                    <a href="{{route('user.index')}}" class="nav-link ">
+                                   <li class="nav-item start ">
+                                    <a href="{{route('person.reqExp')}}" class="nav-link ">
                                         <i class="icon-bar-chart"></i>
-                                        <span class="title">@lang('user.show') </span>
-                                    </a>
-                                </li>
-                                <li class="nav-item start ">
-                                    <a href="{{route('user.store')}}" class="nav-link ">
-                                        <i class="icon-bulb"></i>
-                                        <span class="title">@lang('user.add') </span>
+                                        <span class="title">@lang('person.RequestUser') </span>
                                     </a>
                                 </li>
                             </ul>

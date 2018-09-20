@@ -11,7 +11,7 @@ class Person extends Model
     protected $fillable = ['id', 'username' , 'first_name' , 'last_name', 'phone','email',
         'password','agreed','code','long','lat','gender','age','type_skin','color_skin',
         'color_hair','freckles','eye_color','height','weight','activities','sensitivity',
-        'fire','spf','water_resistance','amount_cream','image','type_of_person','cv'];
+        'fire','spf','water_resistance','amount_cream','image','type_of_person','cv','blocked'];
     protected $dates = ['created_at', 'updated_at','deleted_at','remember_token'];
 
     public function posts(){

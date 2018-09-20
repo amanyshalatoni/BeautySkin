@@ -31,28 +31,17 @@ Route::get('/language/{lang?}', [
     'as' => 'language.change',
     'uses' => 'LocalizationController@change'
 ]);
-Route::group(['prefix' => 'expert'], function () {
-    Route::get('create',['as' => 'expert.create', 'uses' => 'ExpertController@create']);
-    Route::get('show/{id}',['as' => 'expert.show', 'uses' => 'ExpertController@show']);
-    Route::post('create', ['as' => 'expert.store', 'uses' => 'ExpertController@store']);
-    Route::get('/all', ['as' => 'expert.index', 'uses' => 'ExpertController@index']);
-    Route::get('destroy/{id?}', ['as' => 'expert.destroy', 'uses' => 'ExpertController@destroy']);
-    Route::get('edit/{id}', ['as' => 'expert.edit', 'uses' => 'ExpertController@edit']);
-    Route::put('update/{id}', ['as' => 'expert.update', 'uses' => 'ExpertController@update']);
-//    Route::get('/active/{id}', 'ExpertController@active');
-//    Route::get('/changepassword/', 'ExpertController@changepassword');
-//    Route::post('/changepassword/', 'ExpertController@postChangepassword');
-//    Route::get('/profile/', 'ExpertController@profile');
-//    Route::post('/profile/', 'ExpertController@updateprofile');
-});
-Route::group(['prefix' => 'user'], function () {
-    Route::get('create',['as' => 'user.create', 'uses' => 'UserController@create']);
-    Route::get('show/{id}',['as' => 'user.show', 'uses' => 'UserController@show']);
-    Route::post('create', ['as' => 'user.store', 'uses' => 'UserController@store']);
-    Route::get('/all', ['as' => 'user.index', 'uses' => 'UserController@index']);
-    Route::get('destroy/{id?}', ['as' => 'user.destroy', 'uses' => 'UserController@destroy']);
-    Route::get('edit/{id}', ['as' => 'user.edit', 'uses' => 'UserController@edit']);
-    Route::put('update/{id}', ['as' => 'user.update', 'uses' => 'UserController@update']);
+Route::group(['prefix' => 'person'], function () {
+    Route::get('create',['as' => 'person.create', 'uses' => 'PersonController@create']);
+    Route::get('show/{id}',['as' => 'person.show', 'uses' => 'PersonController@show']);
+    Route::post('create', ['as' => 'person.store', 'uses' => 'PersonController@store']);
+    Route::get('/all', ['as' => 'person.index', 'uses' => 'PersonController@index']);
+    Route::get('/req', ['as' => 'person.reqExp', 'uses' => 'PersonController@reqExp']);
+    Route::get('block/{id?}', ['as' => 'person.block', 'uses' => 'PersonController@block']);
+    Route::get('accept/{id}', ['as' => 'person.accept', 'uses' => 'PersonController@accept']);
+        Route::get('reject/{id?}', ['as' => 'person.reject', 'uses' => 'PersonController@reject']);
+
+
 //    Route::get('/active/{id}', 'UserController@active');
 //    Route::get('/changepassword/', 'UserController@changepassword');
 //    Route::post('/changepassword/', 'UserController@postChangepassword');
